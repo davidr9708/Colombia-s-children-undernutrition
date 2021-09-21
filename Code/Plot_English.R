@@ -1,6 +1,5 @@
 # Packages
 library(tidyverse)
-library(gganimate)
 
 # Data frame 
 load(file = "Rdata/Rates.rda")
@@ -33,5 +32,3 @@ Rates %>%
         axis.ticks = element_blank(), axis.text.x = element_blank(),
         legend.position = "none",
         panel.background = element_blank())
-
-transition_states(Rate, wrap = TRUE) + shadow_mark(alpha =0.9)
