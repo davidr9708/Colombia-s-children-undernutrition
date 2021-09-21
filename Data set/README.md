@@ -1,4 +1,4 @@
-# DICTIONARY 
+# Dictionary
 ## Data set description
 This data set has the undernutrition's situation of children younger than 5 years old for 2018 in Colombia's "departamentos"
 
