@@ -6,7 +6,7 @@ load(file = "Rdata/Rates.rda")
 
 # Plot
 Rates %>%
-  ggplot(aes(y = Departamento_residency, x = Rate, 
+  ggplot(aes(y = Departamento, x = Rate, 
              fill = TOP_10, label = round(Rate, 0))) + 
   
   ## Geom

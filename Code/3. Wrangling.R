@@ -29,12 +29,12 @@ Rates <-
   group_by(Departamento_residencia) %>%
   summarise(Colombia_rate = mean(Colombia_rate),
             Rate = round((sum(Total.cases)/sum(Total.dpto))*1000, 2)) %>%
-  mutate(Departamento_residency = str_to_title(Departamento_residencia),
-         Departamento_residency = fct_reorder(Departamento_residency, Rate),
+  mutate(Departamento = str_to_title(Departamento_residencia),
+         Departamento = fct_reorder(Departamento, Rate),
          Ranking = rank(desc(Rate)), 
          TOP_10 = ifelse(Ranking < 11, "Yes", "No")) %>%
   arrange(desc(Ranking)) %>%
-  select(Departamento_residency, Rate, Colombia_rate, Ranking, TOP_10) 
+  select(Departamento, Rate, Colombia_rate, Ranking, TOP_10) 
 
 
 
@@ -42,6 +42,7 @@ Rates <-
 save(Rates, file = "Rdata/Rates.rda")
 
 # Export data frame as a CSV file
-write.csv(Rates, "Colombia_children_5_undernutrition_rates_2018.csv")
+write.csv(Rates, "Colombia_children_5_undernutrition_rates_2018.csv", 
+          row.names = FALSE)
 
 
