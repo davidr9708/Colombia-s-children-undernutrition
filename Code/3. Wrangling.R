@@ -25,18 +25,23 @@ Undernutrition.summary <-  Undernutrition %>%
 Rates <- 
   inner_join(Demography.summary, Undernutrition.summary) %>%
   ungroup(.) %>%
-  mutate(Colombia.rate = (sum(Total.cases)/sum(Total.dpto))*1000) %>%
+  mutate(Colombia_rate = round((sum(Total.cases)/sum(Total.dpto))*1000),2) %>%
   group_by(Departamento_residencia) %>%
-  summarise(Colombia.rate = mean(Colombia.rate),
-            Rate = (sum(Total.cases)/sum(Total.dpto))*1000) %>%
-  mutate(Departamento_residencia = str_to_title(Departamento_residencia),
-         Departamento_residencia = fct_reorder(Departamento_residencia, Rate),
+  summarise(Colombia_rate = mean(Colombia_rate),
+            Rate = round((sum(Total.cases)/sum(Total.dpto))*1000, 2)) %>%
+  mutate(Departamento_residency = str_to_title(Departamento_residencia),
+         Departamento_residency = fct_reorder(Departamento_residency, Rate),
          Ranking = rank(desc(Rate)), 
-         TOP.10 = ifelse(Ranking < 11, "Highest", "Lowest")) %>%
-  arrange(desc(Ranking))
+         TOP_10 = ifelse(Ranking < 11, "Yes", "No")) %>%
+  arrange(desc(Ranking)) %>%
+  select(Departamento_residency, Rate, Colombia_rate, Ranking, TOP_10) 
+
 
 
 # Save data frame   
 save(Rates, file = "Rdata/Rates.rda")
+
+# Export data frame as a CSV file
+write.csv(Rates, "Colombia_children_5_undernutrition_rates_2018.csv")
 
 
