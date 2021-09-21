@@ -1,10 +1,10 @@
-# Colombian children undernutrition 2018 (plot and data set)
+# Colombian children undernutrition 2018: Plot and data set
 ![](Plots/Plot_English.png)
 
 ## Description
 The aims of this project are: 
-- Summarize in a data set (CSV) undernutrition's situation of children younger than 5 years old in each colombian "departamento" for 2018.
-- Compare by a plot, the undernutrition's rates of children younger than 5 years old in each colombian "departamento" for 2018.
+- Summarize in a data set (CSV) the undernutrition's situation of children younger than 5 years old in each colombian "departamento" for 2018.
+- Design a plot of the undernutrition's rates of children younger than 5 years old in each colombian "departamento" for 2018.
 
 ## Data source
 - **Demographic data:** were taken from the last [national census of colombia in 2018](http://microdatos.dane.gov.co/index.php/catalog/643/get_microdata).
